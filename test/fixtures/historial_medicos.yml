@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  paciente: one
+  cita_medica: one
+  fecha_registro: 2025-05-25
+  diagnostico: MyText
+  tratamiento: MyText
+  notas: MyText
+
+two:
+  paciente: two
+  cita_medica: two
+  fecha_registro: 2025-05-25
+  diagnostico: MyText
+  tratamiento: MyText
+  notas: MyText

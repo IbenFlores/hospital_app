@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_sala: MyString
+  ubicacion: MyString
+  tipo_sala: MyString
+  capacidad: 1
+
+two:
+  nombre_sala: MyString
+  ubicacion: MyString
+  tipo_sala: MyString
+  capacidad: 1

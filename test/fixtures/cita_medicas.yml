@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  paciente: one
+  doctor: one
+  sala_medica: one
+  fecha_hora: 2025-05-25 12:41:23
+  motivo: MyString
+  estado: MyString
+
+two:
+  paciente: two
+  doctor: two
+  sala_medica: two
+  fecha_hora: 2025-05-25 12:41:23
+  motivo: MyString
+  estado: MyString
