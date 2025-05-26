@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Nuevo Historial Médico</h1>
+  
+  <% if @cita %>
+    <p class="lead">Creando historial para la cita con <%= @cita.paciente.nombre %> <%= @cita.paciente.apellido %> el <%= @cita.fecha_hora.strftime('%d/%m/%Y %H:%M') %></p>
+  <% end %>
+
+  <%= form_with(model: [@cita, @historial_medico], url: citas_medica_historiales_medicos_path(@cita), class: "row g-3") do |form| %>
+    <% if @historial_medico.errors.any? %>
+      <div class="alert alert-danger">
+        <h4><%= pluralize(@historial_medico.errors.count, "error") %> impidió guardar este historial médico:</h4>
+        <ul>
+          <% @historial_medico.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="col-12">
+      <%= form.label :diagnostico, "Diagnóstico", class: "form-label" %>
+      <%= form.text_area :diagnostico, class: "form-control", rows: 4 %>
+    </div>
+
+    <div class="col-12">
+      <%= form.label :tratamiento, "Tratamiento", class: "form-label" %>
+      <%= form.text_area :tratamiento, class: "form-control", rows: 4 %>
+    </div>
+
+    <div class="col-12">
+      <%= form.label :notas, "Notas", class: "form-label" %>
+      <%= form.text_area :notas, class: "form-control", rows: 4 %>
+    </div>
+
+    <div class="col-12">
+      <%= form.submit "Crear Historial", class: "btn btn-primary" %>
+      <%= link_to "Cancelar", root_path, class: "btn btn-secondary ms-2" %>
+    </div>
+  <% end %>
+</div>

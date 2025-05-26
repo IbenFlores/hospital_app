@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "pages#home"
   devise_for :doctors
   devise_for :pacientes
-  resources :citas_medicas do
+  resources :citas_medicas, except: [ :index ] do
     member do
       patch :aprobar
       patch :completar

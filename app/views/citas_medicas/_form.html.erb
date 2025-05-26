@@ -1,0 +1,46 @@
+<%= form_with(model: cita, url: citas_medicas_path, class: "row g-3") do |form| %>  
+  <% if cita.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(cita.errors.count, "error") %> impidió guardar esta cita médica:</h4>
+      <ul>
+        <% cita.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	
+	<% if doctor_signed_in? %>
+		<div class="col-md-6">
+			<%= form.label :paciente_id, "Paciente", class: "form-label" %>
+			<%= form.collection_select :paciente_id, Paciente.all, :id, ->(p) { "#{p.nombre} #{p.apellido}" }, { include_blank: "Seleccione un paciente" }, { class: "form-select" } %>
+		</div>
+	<% else %>
+		<div class="col-md-6">
+			<%= form.label :doctor_id, "Doctor", class: "form-label" %>
+			<%= form.collection_select :doctor_id, Doctor.all, :id, ->(d) { "#{d.nombre} #{d.apellido}" }, { include_blank: "Seleccione un doctor" }, { class: "form-select" } %>
+		</div>
+	<% end %>
+	
+
+
+  <div class="col-md-6">
+    <%= form.label :sala_medica_id, "Sala Médica", class: "form-label" %>
+    <%= form.collection_select :sala_medica_id, SalaMedica.all, :id, :nombre_sala, { include_blank: "Seleccione una sala" }, { class: "form-select" } %>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :fecha_hora, "Fecha y Hora", class: "form-label" %>
+    <%= form.datetime_field :fecha_hora, class: "form-control" %>
+  </div>
+
+  <div class="col-12">
+    <%= form.label :motivo, "Motivo de la consulta", class: "form-label" %>
+    <%= form.text_area :motivo, class: "form-control", rows: 4 %>
+  </div>
+
+  <div class="col-12">
+    <%= form.submit "Guardar Cita", class: "btn btn-primary" %>
+  </div>
+<% end %>

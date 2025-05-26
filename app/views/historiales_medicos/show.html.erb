@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Historial Médico</h1>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>Detalles del Historial</h2>
+    </div>
+    <div class="card-body">
+      <p>
+        <strong>Paciente:</strong>
+        <%= @historial_medico.paciente.nombre %> <%= @historial_medico.paciente.apellido %>
+      </p>
+
+      <% if @cita %>
+        <p>
+          <strong>Cita Médica:</strong>
+          <%= @cita.fecha_hora.strftime('%d/%m/%Y %H:%M') %> con Dr. <%= @cita.doctor.nombre %> <%= @cita.doctor.apellido %>
+        </p>
+      <% end %>
+
+      <p>
+        <strong>Fecha de Registro:</strong>
+        <%= @historial_medico.fecha_registro.strftime('%d/%m/%Y') %>
+      </p>
+
+      <p>
+        <strong>Diagnóstico:</strong>
+        <%= @historial_medico.diagnostico || 'No especificado' %>
+      </p>
+
+      <p>
+        <strong>Tratamiento:</strong>
+        <%= @historial_medico.tratamiento || 'No especificado' %>
+      </p>
+
+      <p>
+        <strong>Notas:</strong>
+        <%= @historial_medico.notas || 'No especificado' %>
+      </p>
+
+      <div class="mt-4">
+        <% if doctor_signed_in? %>
+          <%= link_to 'Nueva Cita', new_citas_medica_path, class: 'btn btn-primary' %>
+          <%= link_to 'Volver a Citas', root_path, class: 'btn btn-secondary' %>
+        <% elsif paciente_signed_in? %>
+          <%= link_to 'Volver a Mis Citas', root_path, class: 'btn btn-secondary' %>
+        <% else %>
+          <%= link_to 'Volver', root_path, class: 'btn btn-secondary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,12 +14,12 @@
         </li>
         <% if paciente_signed_in? %>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPaciente" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdownPaciente" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <%= current_paciente.nombre %> <%= current_paciente.apellido %>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPaciente">
               <li>
-                <%= link_to "Mis Citas", citas_medicas_path, class: "dropdown-item" %>
+                <%= link_to "Solicitar una cita", new_citas_medica_path, class: "dropdown-item" %>
               </li>
               <li>
                 <%= link_to "Cerrar Sesión", destroy_paciente_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
@@ -28,35 +28,16 @@
           </li>
         <% elsif doctor_signed_in? %>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDoctor" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdownDoctor" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <%= current_doctor.nombre %> <%= current_doctor.apellido %>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownDoctor">
               <li>
-                <%= link_to "Mis Citas", citas_medicas_path, class: "dropdown-item" %>
+                <%= link_to "Mis Citas", root_path, class: "dropdown-item" %>
               </li>
               <li>
                 <%= link_to "Cerrar Sesión", destroy_doctor_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
               </li>
-            </ul>
-          </li>
-        <% else %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="pacienteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Pacientes
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="pacienteDropdown">
-              <li><%= link_to "Iniciar Sesión", new_paciente_session_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Registrarse", new_paciente_registration_path, class: "dropdown-item" %></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="doctorDropdown" role: "button" data-bs-toggle="dropdown" aria-expanded="false">
-              Doctores
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="doctorDropdown">
-              <li><%= link_to "Iniciar Sesión", new_doctor_session_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Registrarse", new_doctor_registration_path, class: "dropdown-item" %></li>
             </ul>
           </li>
         <% end %>

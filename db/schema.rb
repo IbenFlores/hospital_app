@@ -20,7 +20,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_26_002238) do
     t.integer "sala_medica_id", null: false
     t.datetime "fecha_hora", null: false
     t.string "motivo"
-    t.string "estado", default: "Programada"
+    t.string "estado", default: "Pendiente"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

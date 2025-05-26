@@ -1,0 +1,2 @@
+module CitasMedicasHelper
+end
