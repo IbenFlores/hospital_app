@@ -1,4 +1,3 @@
-# db/seeds.rb
 HistorialMedico.destroy_all
 CitaMedica.destroy_all
 Paciente.destroy_all
@@ -55,7 +54,9 @@ doctores = [
     especialidad: "Cardiología",
     licencia_medica: "87654321",
     telefono: "901234567",
-    email: "ana.martinez@hospital.com"
+    email: "ana.martinez@hospital.com",
+    password: "password123",
+    password_confirmation: "password123"
   },
   {
     nombre: "Carlos",
@@ -63,7 +64,9 @@ doctores = [
     especialidad: "Pediatría",
     licencia_medica: "76543210",
     telefono: "934567890",
-    email: "carlos.rodriguez@hospital.com"
+    email: "carlos.rodriguez@hospital.com",
+    password: "password123",
+    password_confirmation: "password123"
   },
   {
     nombre: "Laura",
@@ -71,7 +74,9 @@ doctores = [
     especialidad: "Neurología",
     licencia_medica: "65432109",
     telefono: "978901234",
-    email: "laura.sanchez@hospital.com"
+    email: "laura.sanchez@hospital.com",
+    password: "password123",
+    password_confirmation: "password123"
   }
 ]
 
@@ -111,7 +116,7 @@ citas = [
     sala_medica: SalaMedica.find_by(nombre_sala: "Sala de Consultas 1"),
     fecha_hora: DateTime.new(2025, 6, 1, 10, 0),
     motivo: "Chequeo cardiológico anual",
-    estado: "Programada"
+    estado: "Pendiente"
   },
   {
     paciente: Paciente.find_by(email: "maria.gomez@example.com"),
@@ -128,6 +133,14 @@ citas = [
     fecha_hora: DateTime.new(2025, 5, 30, 9, 0),
     motivo: "Dolor de cabeza severo",
     estado: "Completada"
+  },
+  {
+    paciente: Paciente.find_by(email: "juan.perez@example.com"),
+    doctor: Doctor.find_by(licencia_medica: "87654321"),
+    sala_medica: SalaMedica.find_by(nombre_sala: "Quirófano A"),
+    fecha_hora: DateTime.now,
+    motivo: "Cirugía de corazón",
+    estado: "Programada"
   }
 ]
 
@@ -139,7 +152,7 @@ historiales = [
   {
     paciente: Paciente.find_by(email: "alex.lopez@example.com"),
     cita_medica: CitaMedica.find_by(motivo: "Dolor de cabeza severo"),
-    fecha_registro: Date.new(2025, 5, 25), # Cambiado a fecha válida
+    fecha_registro: Date.new(2025, 5, 25),
     diagnostico: "Migraña crónica",
     tratamiento: "Prescripción de sumatriptán 50mg según necesidad",
     notas: "Recomendar seguimiento en 1 mes"
@@ -147,7 +160,7 @@ historiales = [
   {
     paciente: Paciente.find_by(email: "juan.perez@example.com"),
     cita_medica: nil,
-    fecha_registro: Date.new(2025, 5, 20), # Ya es válida
+    fecha_registro: Date.new(2025, 5, 20),
     diagnostico: "Hipertensión leve",
     tratamiento: "Dieta baja en sodio, monitoreo regular",
     notas: "Paciente reporta mareos ocasionales"
@@ -158,4 +171,4 @@ historiales.each do |historial|
   HistorialMedico.create!(historial)
 end
 
-puts "Seeds created successfully!"
+puts "¡Seeds creados exitosamente!"

@@ -6,7 +6,6 @@ class CreateDoctores < ActiveRecord::Migration[8.0]
       t.string :especialidad, null: false
       t.string :licencia_medica, null: false
       t.string :telefono
-      t.string :email
 
       t.timestamps
     end

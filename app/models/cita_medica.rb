@@ -9,7 +9,7 @@ class CitaMedica < ApplicationRecord
 
   # Validaciones
   validates :fecha_hora, presence: true
-  validates :estado, presence: true, inclusion: { in: %w[Programada Completada Cancelada], message: "debe ser Programada, Completada o Cancelada" }
+  validates :estado, presence: true, inclusion: { in: %w[Pendiente Programada Completada Cancelada], message: "debe ser Pendiente, Programada, Completada o Cancelada" }
   validates :motivo, presence: true, allow_blank: true
   validates :fecha_hora, comparison: { greater_than: Time.current, message: "debe ser futura" }, if: -> { estado == "Programada" }
 end
