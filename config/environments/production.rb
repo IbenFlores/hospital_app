@@ -87,4 +87,12 @@ Rails.application.configure do
   #
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  # Configuraciones para producción
+  config.cache_classes = true
+  config.eager_load = true
+  config.consider_all_requests_local = false
+
+  # Asegúrate de que Propshaft maneje los activos
+  config.assets.compile = true
+  config.assets.digest = true
 end

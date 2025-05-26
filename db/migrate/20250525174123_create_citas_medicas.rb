@@ -6,7 +6,7 @@ class CreateCitasMedicas < ActiveRecord::Migration[8.0]
       t.integer :sala_medica_id, null: false
       t.datetime :fecha_hora, null: false
       t.string :motivo
-      t.string :estado, default: 'Programada'
+      t.string :estado, default: 'Pendiente'
 
       t.timestamps
     end

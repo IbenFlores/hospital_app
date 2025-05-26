@@ -1,31 +1,66 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
-</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <img src="https://www.freeiconspng.com/thumbs/hospital-icon/ambulance-cross-hospital-icon-11.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+      Sistema Médico
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Navegación">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <%= link_to "Inicio", root_path, class: "nav-link" %>
+        </li>
+        <% if paciente_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPaciente" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= current_paciente.nombre %> <%= current_paciente.apellido %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPaciente">
+              <li>
+                <%= link_to "Mis Citas", citas_medicas_path, class: "dropdown-item" %>
+              </li>
+              <li>
+                <%= link_to "Cerrar Sesión", destroy_paciente_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+              </li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Messages</a>
+        <% elsif doctor_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDoctor" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= current_doctor.nombre %> <%= current_doctor.apellido %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownDoctor">
+              <li>
+                <%= link_to "Mis Citas", citas_medicas_path, class: "dropdown-item" %>
+              </li>
+              <li>
+                <%= link_to "Cerrar Sesión", destroy_doctor_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pacienteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Pacientes
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="pacienteDropdown">
+              <li><%= link_to "Iniciar Sesión", new_paciente_session_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Registrarse", new_paciente_registration_path, class: "dropdown-item" %></li>
+            </ul>
           </li>
           <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
-            </div>
+            <a class="nav-link dropdown-toggle" href="#" id="doctorDropdown" role: "button" data-bs-toggle="dropdown" aria-expanded="false">
+              Doctores
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="doctorDropdown">
+              <li><%= link_to "Iniciar Sesión", new_doctor_session_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Registrarse", new_doctor_registration_path, class: "dropdown-item" %></li>
+            </ul>
           </li>
-          <!--li class="nav-item"-->
-          <!--/li-->
+        <% end %>
       </ul>
     </div>
   </div>
-</div>
+</nav>

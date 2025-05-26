@@ -1,0 +1,39 @@
+# config/locales/devise.es.yml
+es:
+  devise:
+    registrations:
+      signed_up: "¡Bienvenido! Te has registrado exitosamente."
+      signed_up_but_unconfirmed: "Se ha enviado un mensaje con un enlace de confirmación a tu correo electrónico."
+      update_needs_confirmation: "Has actualizado tu cuenta, pero necesitamos verificar tu nuevo correo electrónico."
+      updated: "Tu cuenta ha sido actualizada exitosamente."
+      destroyed: "¡Adiós! Tu cuenta ha sido cancelada exitosamente."
+    sessions:
+      signed_in: "Has iniciado sesión exitosamente."
+      signed_out: "Has cerrado sesión exitosamente."
+    passwords:
+      no_token: "No puedes acceder a esta página sin un enlace de restablecimiento de contraseña."
+      send_instructions: "Recibirás un correo con instrucciones para restablecer tu contraseña en unos minutos."
+      send_paranoid_instructions: "Si tu correo existe en nuestra base de datos, recibirás un enlace para restablecer tu contraseña."
+      updated: "Tu contraseña ha sido cambiada exitosamente. Ahora estás conectado."
+    confirmations:
+      confirmed: "Tu cuenta ha sido confirmada exitosamente. Ahora estás conectado."
+      send_instructions: "Recibirás un correo con instrucciones para confirmar tu cuenta en unos minutos."
+    unlocks:
+      send_instructions: "Recibirás un correo con instrucciones para desbloquear tu cuenta en unos minutos."
+      unlocked: "Tu cuenta ha sido desbloqueada exitosamente. Por favor, inicia sesión."
+    failure:
+      already_authenticated: "Ya estás autenticado."
+      inactive: "Tu cuenta aún no ha sido activada."
+      invalid: "Correo o contraseña inválidos."
+      locked: "Tu cuenta está bloqueada."
+      not_found_in_database: "Correo o contraseña inválidos."
+      timeout: "Tu sesión ha expirado, por favor inicia sesión nuevamente."
+      unauthenticated: "Necesitas iniciar sesión o registrarte antes de continuar."
+      unconfirmed: "Necesitas confirmar tu cuenta antes de continuar."
+    shared:
+      links:
+        log_in: "Iniciar sesión"
+        sign_up: "Registrarse"
+        forgot_your_password: "¿Olvidaste tu contraseña?"
+        didnt_receive_confirmation_instructions: "¿No recibiste las instrucciones de confirmación?"
+        didnt_receive_unlock_instructions: "¿No recibiste las instrucciones de desbloqueo?"
