@@ -14,13 +14,32 @@ class HistorialesMedicosController < ApplicationController
     if @historial_medico.save
       redirect_to root_path, notice: "Historial médico creado exitosamente."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def show
     @historial_medico = HistorialMedico.find(params[:id])
     @cita = @historial_medico.cita_medica
+  end
+
+  def edit
+    @historial_medico = HistorialMedico.find(params[:id])
+  end
+
+  def update
+    @historial_medico = HistorialMedico.find(params[:id])
+    if @historial_medico.update(historial_params)
+      redirect_to root_path, notice: "Historial médico actualizado exitosamente."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @historial_medico = HistorialMedico.find(params[:id])
+    @historial_medico.destroy
+    redirect_to root_path, notice: "Historial médico eliminado exitosamente."
   end
 
   private

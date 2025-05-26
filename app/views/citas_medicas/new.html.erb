@@ -1,5 +1,7 @@
 <h1>Nueva Cita Médica</h1>
 
-<%= render 'form', cita: @cita %>
+<div class="container mt-5">
+  <%= render 'form', cita: @cita %>
+  <%= link_to 'Volver', root_path, class: "btn btn-secondary mt-2" %>
+</div>
 
-<%= link_to 'Volver', root_path %>

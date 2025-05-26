@@ -80,4 +80,5 @@ Rails.application.configure do
 
   # Desactiva cualquier comportamiento relacionado con Sprockets
   config.assets.check_precompiled_asset = false
+  config.hosts << "f2ae-190-119-187-251.ngrok-free.app"
 end

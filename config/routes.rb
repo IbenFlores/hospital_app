@@ -8,8 +8,9 @@ Rails.application.routes.draw do
       patch :completar
       patch :cancelar
     end
-    resources :historiales_medicos, only: [ :new, :create, :show ]  # Historiales anidados bajo citas
+    resources :historiales_medicos, only: [ :new, :create, :show ]
   end
+  resources :historiales_medicos, only: [ :edit, :update, :destroy ]
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

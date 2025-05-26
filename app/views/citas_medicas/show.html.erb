@@ -6,12 +6,6 @@
       <h2>Detalles de la Cita</h2>
     </div>
     <div class="card-body">
-      <% if notice %>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          <%= notice %>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      <% end %>
 
       <p>
         <strong>Paciente:</strong>
@@ -46,13 +40,8 @@
       <div class="mt-4">
         <%= link_to 'Editar', edit_citas_medica_path(@cita), class: 'btn btn-primary' %>
         <%= link_to 'Volver', root_path, class: 'btn btn-secondary' %>
-        <% if @cita.estado == 'Programada' %>
-          <%= link_to 'Aprobar', aprobar_citas_medica_path(@cita), method: :patch, class: 'btn btn-primary' %>
-        <% end %>
-        <% if @cita.estado == 'Aprobada' %>
-          <%= link_to 'Completar', completar_citas_medica_path(@cita), method: :patch, class: 'btn btn-primary' %>
-        <% end %>
-        <%= link_to 'Cancelar', cancelar_citas_medica_path(@cita), method: :patch, class: 'btn btn-danger' %>
+        
+        <%= link_to 'Cancelar', cancelar_citas_medica_path(@cita), method: :patch, class: 'btn btn-danger', data: {turbo_method: :patch} %>
       </div>
     </div>
   </div>

@@ -5,7 +5,7 @@
     <p class="lead">Creando historial para la cita con <%= @cita.paciente.nombre %> <%= @cita.paciente.apellido %> el <%= @cita.fecha_hora.strftime('%d/%m/%Y %H:%M') %></p>
   <% end %>
 
-  <%= form_with(model: [@cita, @historial_medico], url: citas_medica_historiales_medicos_path(@cita), class: "row g-3") do |form| %>
+  <%= form_with(model: @historial_medico, url: historiales_medico_path, class: "row g-3") do |form| %>
     <% if @historial_medico.errors.any? %>
       <div class="alert alert-danger">
         <h4><%= pluralize(@historial_medico.errors.count, "error") %> impidió guardar este historial médico:</h4>

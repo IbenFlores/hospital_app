@@ -44,9 +44,9 @@
           <%= link_to 'Volver a Citas', root_path, class: 'btn btn-secondary' %>
         <% elsif paciente_signed_in? %>
           <%= link_to 'Volver a Mis Citas', root_path, class: 'btn btn-secondary' %>
-        <% else %>
-          <%= link_to 'Volver', root_path, class: 'btn btn-secondary' %>
         <% end %>
+        <%= link_to 'Editar Historial', edit_historiales_medico_path(@historial_medico), class: 'btn btn-warning' %>
+        <%= link_to 'Eliminar Historial', historiales_medico_path(@historial_medico), method: :delete, data: {turbo_method: :delete, confirm: '¿Estás seguro de eliminar este historial médico?' }, class: 'btn btn-danger' %>
       </div>
     </div>
   </div>
