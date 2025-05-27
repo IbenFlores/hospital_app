@@ -206,7 +206,7 @@ GEM
       prettyprint
     prettyprint (0.2.0)
     prism (1.4.0)
-    propshaft (0.8.0)
+    propshaft (1.1.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
@@ -394,7 +394,7 @@ DEPENDENCIES
   jbuilder
   kamal
   pg (~> 1.1)
-  propshaft (= 0.8.0)
+  propshaft (= 1.1.0)
   puma (>= 5.0)
   rails (~> 8.0.2)
   rubocop-rails-omakase
